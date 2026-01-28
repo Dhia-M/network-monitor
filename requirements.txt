@@ -1,0 +1,7 @@
+Flask==3.0.0
+ping3==4.0.4
+pysnmp-lextudio==5.0.34
+pyasn1==0.5.1
+pycryptodomex==3.19.0
+PyYAML==6.0.1
+requests==2.31.0

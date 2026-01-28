@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-top">
+                <h1>🌐 Network Monitoring Dashboard</h1>
+                <button class="btn-add-device" onclick="openAddDeviceModal()">
+                    ➕ Add Device
+                </button>
+            </div>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-label">Total Devices</span>
+                    <span class="stat-value" id="total-devices">0</span>
+                </div>
+                <div class="stat-card up">
+                    <span class="stat-label">Online</span>
+                    <span class="stat-value" id="up-devices">0</span>
+                </div>
+                <div class="stat-card down">
+                    <span class="stat-label">Offline</span>
+                    <span class="stat-value" id="down-devices">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Device Grid -->
+        <main id="device-grid" class="device-grid">
+            <!-- Devices will be loaded here by JavaScript -->
+        </main>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading device status...</p>
+        </div>
+    </div>
+
+    <!-- Add Device Modal -->
+    <div id="addDeviceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Device</h2>
+                <span class="close" onclick="closeAddDeviceModal()">&times;</span>
+            </div>
+            <form id="addDeviceForm" onsubmit="addDevice(event)">
+                <div class="form-group">
+                    <label for="deviceName">Device Name *</label>
+                    <input type="text" id="deviceName" required placeholder="e.g., Main Router">
+                </div>
+                <div class="form-group">
+                    <label for="deviceIP">IP Address *</label>
+                    <input type="text" id="deviceIP" required placeholder="e.g., 192.168.1.1"
+                        pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$">
+                </div>
+                <div class="form-group">
+                    <label for="deviceType">Device Type</label>
+                    <select id="deviceType">
+                        <option value="router">Router</option>
+                        <option value="switch">Switch</option>
+                        <option value="server">Server</option>
+                        <option value="workstation">Workstation</option>
+                        <option value="firewall">Firewall</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="snmpEnabled">
+                    <label for="snmpEnabled">Enable SNMP Monitoring</label>
+                </div>
+                <div class="form-group" id="snmpCommunityGroup" style="display: none;">
+                    <label for="snmpCommunity">SNMP Community String</label>
+                    <input type="text" id="snmpCommunity" value="public">
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary" onclick="closeAddDeviceModal()">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Device</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Device Detail Modal -->
+    <div id="deviceDetailModal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h2 id="detailDeviceName">Device Details</h2>
+                <span class="close" onclick="closeDetailModal()">&times;</span>
+            </div>
+            <div id="deviceDetailContent">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+
+</html>

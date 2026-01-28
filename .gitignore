@@ -1,0 +1,36 @@
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+*.dll
+*.dylib
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Database
+data/
+*.db
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (if sensitive)
+# config/config.yaml

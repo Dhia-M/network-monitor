@@ -1,0 +1,42 @@
+# Network Monitoring System Configuration
+
+# Monitoring settings
+monitoring:
+  poll_interval: 30          # Seconds between device checks
+  consecutive_failures: 3    # Failures before alerting
+  ping_timeout: 2           # Ping timeout in seconds
+
+# SNMP settings
+snmp:
+  community: "public"
+  timeout: 5
+  retries: 2
+
+# Performance thresholds
+thresholds:
+  cpu_utilization: 80       # Percent
+  memory_usage: 85          # Percent
+  response_time: 1000       # Milliseconds
+
+# Alerting configuration
+alerting:
+  enabled: true
+  
+  # Email notifications
+  email:
+    enabled: true
+    smtp_server: "smtp.gmail.com"
+    smtp_port: 587
+    use_tls: true
+    username: "mankaiahmeddhia50@gmail.com"
+    password: "itub ivuv pzcd fhlm"
+    from_address: "mankaiahmeddhia50@gmail.com"
+    recipients:
+      - "admin@example.com"
+  
+  # Telegram notifications
+  
+  #telegram:
+    enabled: false
+    bot_token: "YOUR_BOT_TOKEN_HERE"
+    chat_id: "YOUR_CHAT_ID_HERE"

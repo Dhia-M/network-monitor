@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🌐 Network Monitoring Dashboard</h1>
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-label">Total Devices</span>
+                    <span class="stat-value" id="total-devices">0</span>
+                </div>
+                <div class="stat-card up">
+                    <span class="stat-label">Online</span>
+                    <span class="stat-value" id="up-devices">0</span>
+                </div>
+                <div class="stat-card down">
+                    <span class="stat-label">Offline</span>
+                    <span class="stat-value" id="down-devices">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Device Grid -->
+        <main id="device-grid" class="device-grid">
+            <!-- Devices will be loaded here by JavaScript -->
+        </main>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading device status...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

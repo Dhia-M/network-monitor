@@ -1,0 +1,20 @@
+# Device Definitions
+# Add your network devices here
+
+devices:
+  - name: "Google DNS"
+    ip: "8.8.8.8"
+    type: "dns_server"
+    snmp_enabled: false
+    
+  - name: "Cloudflare DNS"
+    ip: "1.1.1.1"
+    type: "dns_server"
+    snmp_enabled: false
+    
+  # Example SNMP-enabled device
+  # - name: "Main Router"
+  #   ip: "192.168.1.1"
+  #   type: "router"
+  #   snmp_enabled: true
+  #   snmp_community: "public"
